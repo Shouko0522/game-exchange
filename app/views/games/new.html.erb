@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Create a new game</h1>
+
+      <%= simple_form_for @game do |f| %>
+        <%= f.input :name %>
+        <%= f.input :price %>
+        <%= f.input :genre %>
+        <%= f.input :platform %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
