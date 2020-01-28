@@ -1,0 +1,10 @@
+<div style="margin: 4em;">
+  <h1>My Games list</h1>
+  <div class="cards">
+    <% @games.each do |game| %>
+      <div class="card-category" style="background-image: url('')">
+        <h2><%= link_to game.name, game_path(game) %></h2>
+      </div>
+    <% end %>
+  </div>
+</div>
