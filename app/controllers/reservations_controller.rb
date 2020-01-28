@@ -12,6 +12,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
   end
 
+  def dashboard
+    @reserbations = curerent_user.reserbations
+
   def create
     @reservation= Reservation.new(reservation_params)
     # we need `restaurant_id` to associate review with corresponding restaurant

@@ -11,6 +11,10 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
+  def dashboard
+    @games = current_user.games
+  end
+
   def create
     @game = Game.new(game_params)
     if @game.save
