@@ -1,5 +1,5 @@
 <div style="margin: 4em;">
-  <h1>My Games list</h1>
+  <h1>Games I own</h1>
   <div class="cards">
     <% @games.each do |game| %>
       <div class="card-category" style="background-image: url('')">
@@ -7,5 +7,5 @@
       </div>
     <% end %>
   </div>
-  <%= link_to "Add your game", new_game_path, class: "btn btn-success btn-lg m-4", style:"color: white;" %>
+  <%= link_to "Add a game to rent", new_game_path, class: "btn btn-success btn-lg m-4", style:"color: white;" %>
 </div>
