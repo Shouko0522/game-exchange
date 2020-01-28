@@ -12,8 +12,9 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
   end
 
-  def dashboard
-    @reserbations = curerent_user.reserbations
+  def reservation_dashboard
+    @reservations = current_user.reservations
+  end
 
   def create
     @reservation= Reservation.new(reservation_params)

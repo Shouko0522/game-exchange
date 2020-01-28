@@ -1,0 +1,23 @@
+<div style="margin: 4em;">
+  <h1>My  list</h1>
+  <div class="cards">
+    <% @reservations.each do |reservation| %>
+      <div class="card-category" style="background-image: url('')">
+          <h1>Reservation</h1>
+          <p><%= reservation.game.name %></p>
+
+          <p>renter name</p>
+          <%= reservation.user.name %>
+
+          <p>Start Date</p>
+          <%= reservation.start_date %>
+
+          <p>End Date</p>
+          <%= reservation.end_date %>
+
+          <p>Status</p>
+      </div>
+    <% end %>
+  </div>
+</div>
+
