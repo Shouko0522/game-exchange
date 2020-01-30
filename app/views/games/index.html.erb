@@ -9,7 +9,12 @@
 <div style="margin: 4em;">
   <div class="cards">
     <% @games.each do |game| %>
-      <div class="card-category" style="background-image: url('')">
+      <% if game.photo.attached?%>
+        <% background_url = cl_image_path game.photo.key%>
+      <% else %>
+        <% background_url = 'https://images.unsplash.com/photo-1510015632688-f18aa4c1a95e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' %>
+      <% end %>
+      <div class="card-category" style="background-image: url('<%= background_url %>')">
         <h2><%= link_to game.name, game_path(game) %></h2>
       </div>
     <% end %>

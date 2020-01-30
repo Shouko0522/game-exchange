@@ -29,4 +29,12 @@
       </table>
       <%= link_to "Reserve this game", new_game_reservation_path(@game), class: "btn btn-success btn-lg m-4", style:"color: white;"  %>
     </div>
+
+    <br>
+    <% if @game.photo.attached?%>
+      <%= cl_image_tag @game.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= cl_image_tag("f0e6lzfzkmdqtzfblz6t", width: 400, height: 300, crop: :fill) %>
+    <% end %>
   </div>
+</div>
