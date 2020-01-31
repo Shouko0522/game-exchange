@@ -24,17 +24,20 @@
   overflow: hidden;
   position: relative;
   margin: 1.5rem;
+  margin-left: 0;
 }
 
 .card h1 {
   text-align: center;
+  font-size: 400;
+  font-family: 'Roboto Slab';
 }
 
 .card .additional {
   position: absolute;
   width: 150px;
   height: 100%;
-  background: linear-gradient(#1edd88, #19BB73);
+  background: linear-gradient(#1e2421, rgba(0, 0, 0, 0.79));
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
@@ -68,7 +71,7 @@
 .card .additional .user-card .level,
 .card .additional .user-card .game-name {
   top: 15%;
-  color: #fff;
+  color:#1EDD88;;
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: bold;
@@ -96,6 +99,7 @@
 .card .additional .more-info h1 {
   color: #fff;
   margin-bottom: 0;
+  margin-top: 2rem;
 }
 
 .card .additional .coords {
@@ -110,35 +114,41 @@
 }
 
 .card .additional .stats {
-  font-size: 1rem;
+  font-size: 1.5rem;
   display: flex;
   position: absolute;
   bottom: 1rem;
   left: 1rem;
   right: 1rem;
   top: auto;
-  color: #fff;
+  color: white;
+  padding-top: 1rem;
 }
 
 .card .additional .stats > div {
   flex: 1;
   text-align: center;
+  
 }
 
 .card .additional .stats i {
   display: block;
+  color: #1EDD88;
 }
 
 .card .additional .stats div.title {
   font-size: 0.75rem;
-  font-weight: bold;
+  font-weight: lighter;
   text-transform: uppercase;
+  color: #1EDD88;
 }
 
 .card .additional .stats div.value {
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 300;
+  font-family: 'Raleway';
   line-height: 1.5rem;
+  
 }
 
 .card .additional .stats div.value.infinity {
