@@ -1,1 +1,12 @@
-hi
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Edit reservation status</h1>
+
+      <%= simple_form_for @reservation do |f| %>
+        <%= f.input :status, collection: ['pending', 'confirmed', 'declined'], required: false %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
