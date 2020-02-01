@@ -6,7 +6,8 @@
       <%= simple_form_for @game do |f| %>
         <%= f.input :name %>
         <%= f.input :price %>
-        <%= f.input :platform %>
+        <%= f.input :platform, collection: [ "PS4", "Xbox", "Switch", "GBA", "Gamecube", "Wii", "Super nintendo" ] %>
+        <%= f.input :genre, collection: [ "Action", "RPG", "First-person shooter" ] %>
         <%= f.input :photo, as: :file %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
