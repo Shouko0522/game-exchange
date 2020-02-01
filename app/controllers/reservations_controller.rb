@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
     user = current_user
     @reservation.game = game
     @reservation.user = user
-    @reservation.status = "available"
+    @reservation.status = "pending"
     @reservation.save
     redirect_to game_path(game)
   end
