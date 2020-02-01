@@ -1,3 +1,4 @@
+<div class="index-container" style="background-color: whitesmoke;">
 <div class="banner" style="background-image: url(https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=scale);">
   <div class="container" style="margin-bottom: 25px; padding-bottom: 35px;">
     <h1 class="text-center" style="color:white; padding-top: 26px;">All of the world's games, at your fingertips</h1>
@@ -6,7 +7,7 @@
   </div>
 </div>
 
-<div style="margin: 4em;">
+<div style="">
   <div class="cards">
     <% @games.each do |game| %>
       <% if game.photo.attached?%>
@@ -18,43 +19,50 @@
         <div class="card">
           <div class="additional">
             <div class="user-card">
-              <div class="game-name center">
+              <div>
+                <% if game.user.photo.attached?%>
+                  <%= cl_image_tag game.user.photo.key, class: "avatar-large"%>
+                <% else %>
+                  <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-large" %>
+                <% end %>
+              </div>
+              <div class="game-name">
                 <%= game.user.name %>
               </div>
             </div>
-          <div class="more-info">
-            <h1><%= game.name %></h1>
-            <div class="coords">
-              <div class="stats">
-                <div>
-                  <div class="title">Price</div>
-                  <i class="fas fa-tag"></i>
-                  <div class="value">$<%= game.price %></div>
-                </div>
-                
-                <div>
-                  <div class="title">Platform</div>
-                  <i class="fa fa-gamepad"></i>
-                  <div class="value"><%= game.platform %></div>
-                </div>
-                <div>
-                  <div class="title">Genre</div>
-                  <i class="fas fa-tv"></i>
-                  <div class="value"><%= game.genre %></div>
+            <div class="more-info">
+              <h1><%= game.name %></h1>
+              <div class="coords">
+                <div class="stats">
+                  <div>
+                    <div class="title">Price</div>
+                    <i class="fas fa-tag"></i>
+                    <div class="value">$<%= game.price %></div>
+                  </div>
+                  <div>
+                    <div class="title">Platform</div>
+                    <i class="fa fa-gamepad"></i>
+                    <div class="value"><%= game.platform %></div>
+                  </div>
+                  <div>
+                    <div class="title">Genre</div>
+                    <i class="fas fa-tv"></i>
+                    <div class="value"><%= game.genre %></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="general">
-          <div class="card-category" style="background-image: url('<%= background_url %>')">
+          <div class="general">
+            <div class="card-category" style="background-image: url('<%= background_url %>')">
+            </div>
+            <span class="more">Mouse over the card for more info</span>
           </div>
-          <span class="more">Mouse over the card for more info</span>
-        </div>
-      </div> 
-     <% end %> 
+        </div> 
+      <% end %> 
     <% end %>
   </div>
+</div>
 </div>
 
 <%# <div class="card-category" style="background-image: url('<%= background_url ')"> %>
