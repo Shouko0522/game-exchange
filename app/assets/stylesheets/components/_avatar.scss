@@ -5,8 +5,12 @@
   object-fit: cover;
 }
 .avatar-large {
-  width: 56px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
+  object-fit: cover;
+  margin-top: 5rem;
+  margin-left: 3rem;
 }
 .avatar-bordered {
   width: 40px;

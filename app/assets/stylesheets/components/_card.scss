@@ -17,7 +17,7 @@
 .card {
   width: 450px;
   height: 250px;
-  background-color: #fff;
+  background-color: black;
   background: linear-gradient(#f8f8f8, #fff);
   box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
   border-radius: 6px;
@@ -37,14 +37,11 @@
   position: absolute;
   width: 150px;
   height: 100%;
-  background: linear-gradient(#1e2421, rgba(0, 0, 0, 0.79));
-  transition: width 0.4s;
+  background: linear-gradient(#1e2421, rgba(0, 0, 0, 0.9));
+  transition: width 0.6s;
   overflow: hidden;
   z-index: 2;
 }
-
-
-
 
 .card:hover .additional {
   width: 100%;
@@ -53,7 +50,7 @@
 
 .card .additional .user-card {
   width: 150px;
-  height: 100%;
+  // height: 80%;
   position: relative;
   float: left;
 }
@@ -64,7 +61,6 @@
   position: absolute;
   top: 10%;
   right: -2px;
-  height: 80%;
   border-left: 2px solid rgba(0,0,0,0.025);
 }
 
@@ -74,23 +70,24 @@
   color:#1EDD88;;
   text-transform: uppercase;
   font-size: 0.75em;
-  font-weight: bold;
+  font-weight: lighter;
   background: rgba(0,0,0,0.15);
-  padding: 0.125rem 0.75rem;
+  padding: 0.125rem 1.4rem;
   border-radius: 100px;
-  white-space: nowrap;
-  position: absolute;
-  bottom: 1rem;
+  white-space: normal;
+  text-align: center;
+  margin-top: 1.5rem;
 }
+
 
 .card .additional .user-card .game-name {
   top: 85%;
+  
 }
 
 
 .card .additional .more-info {
   width: 300px;
-  float: left;
   position: absolute;
   left: 150px;
   height: 100%;
@@ -144,11 +141,11 @@
 }
 
 .card .additional .stats div.value {
-  font-size: 1rem;
+  font-size: .8rem;
   font-weight: 300;
   font-family: 'Raleway';
-  line-height: 1.5rem;
-  
+  line-height: 1.3rem;
+  white-space: break-spaces;
 }
 
 .card .additional .stats div.value.infinity {
