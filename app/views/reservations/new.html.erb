@@ -1,4 +1,17 @@
 <div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h2>Make a Reservation for <%= @game.name%></h2>
+
+    <%= simple_form_for [@game, @reservation] do |f| %>
+      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+<!-- <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <h1>Make a Reservation for <%= @game.name%></h1>
@@ -11,3 +24,4 @@
     </div>
   </div>
 </div>
+ -->
