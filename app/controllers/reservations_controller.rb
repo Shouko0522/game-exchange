@@ -28,17 +28,14 @@ class ReservationsController < ApplicationController
   end
 
   def edit
-    @game = Game.find(params[:game_id])
-    @reservation = Reservation.new
+    @reservation = Reservation.find(params[:id])
   end
 
   def update
-    @reservation = Reservation.new(reservation_params)
-    # we need `restaurant_id` to associate review with corresponding restaurant
-    @game = Game.find(params[:game_id])
+    @reservation = Reservation.find(params[:id])
+    @reservation.update(reservation_status_params)
 
-    @reservation.save
-    redirect_to game_path(@game)
+    redirect_to reservation_path(@reservation)
   end
 
   private
@@ -46,4 +43,9 @@ class ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:start_date, :end_date)
   end
+
+  def reservation_status_params
+    params.require(:reservation).permit(:status)
+  end
+
 end
