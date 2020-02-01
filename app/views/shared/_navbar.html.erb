@@ -19,6 +19,7 @@
           <% end %>
           
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <p>Hello, <%= current_user.name %></p>
             <%= link_to "My Games", dashboard_path, class: "dropdown-item" %>
             <%= link_to "My Reservations", reservation_dashboard_path, class: "dropdown-item" %>
             <%= link_to "Edit User Info", edit_user_registration_path, class: "dropdown-item" %>
