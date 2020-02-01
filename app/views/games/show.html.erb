@@ -12,6 +12,7 @@
             <th>Price</th>
             <th>Genre</th>
             <th>Platform</th>
+            <th>Owner</th>
             <th>Delete</th>
           </thead>
           <% @game.name%>
@@ -19,12 +20,20 @@
               <td>$<%= @game.price %></td>
               <td><%= @game.genre %></td>
               <td><%= @game.platform %></td>
+              <td><%= @game.user.name %></td>
               <td>
-                <%= link_to game_path(@game), method: :delete, data: { confirm: "Are you sure?" } do %>
-                  <i class="fa fa-trash destroy_dose"></i>
+                
+                <% if current_user.id == @game.user_id %>
+                  <%= link_to game_path(@game), method: :delete, data: { confirm: "Are you sure?" } do %>
+                    <i class="fa fa-trash destroy_dose"></i>
+                  <% end %>
+                <% else %>
+                  <p></p>
+                <% end %>
+                
+                
               </td>
             </tr>
-          <% end %>
         </tbody>
       </table>
       <%= link_to "Reserve this game", new_game_reservation_path(@game), class: "btn btn-success btn-lg m-4", style:"color: white;"  %>
