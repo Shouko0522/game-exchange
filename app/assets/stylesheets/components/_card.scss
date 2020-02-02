@@ -1,17 +1,17 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 10.5em;
-  width: 13em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 100%;
+  width: 100%;
+  // display: flex;
+  // justify-content: left;
+  // align-items: center;
+  // color: white;
+  // font-size: 24px;
+  // font-weight: bold;
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  // border-radius: 5px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .card {
@@ -19,17 +19,17 @@
   height: 250px;
   background-color: black;
   background: linear-gradient(#f8f8f8, #fff);
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-  border-radius: 6px;
+  // box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  border-radius: 16px;
   overflow: hidden;
-  position: relative;
-  margin: 1.5rem;
-  margin-left: 0;
+  // position: relative;
+  // margin: 1.5rem;
+  margin-left: .5rem;
 }
 
 .card h1 {
   text-align: center;
-  font-size: 400;
+  font-size: 300;
   font-family: 'Roboto Slab';
 }
 
@@ -45,29 +45,27 @@
 
 .card:hover .additional {
   width: 100%;
-  border-radius: 0 5px 5px 0;
+  // border-radius: 0 5px 5px 0;
 }
 
 .card .additional .user-card {
   width: 150px;
   // height: 80%;
-  position: relative;
+  // position: absolute;
   float: left;
 }
 
-.card .additional .user-card::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10%;
-  right: -2px;
-  border-left: 2px solid rgba(0,0,0,0.025);
-}
+// .card .additional .user-card::after {
+//   display: block;
+//   position: absolute;
+//   // top: 10%;
+//   right: -2px;
+//   border-left: 2px solid rgba(0,0,0,0.025);
+// }
 
-.card .additional .user-card .level,
-.card .additional .user-card .game-name {
-  top: 15%;
-  color:#1EDD88;;
+.card .additional .user-card .user-name {
+  // top: 15%;
+  color:#1EDD88;
   text-transform: uppercase;
   font-size: 0.75em;
   font-weight: lighter;
@@ -79,12 +77,9 @@
   margin-top: 1.5rem;
 }
 
-
-.card .additional .user-card .game-name {
-  top: 85%;
-  
-}
-
+// .card .additional .user-card .user-name {
+//   // top: 85%;
+// }
 
 .card .additional .more-info {
   width: 300px;
@@ -95,23 +90,24 @@
 
 .card .additional .more-info h1 {
   color: #fff;
-  margin-bottom: 0;
-  margin-top: 2rem;
+  // padding-bottom: 6rem;
+  margin-top: 1rem;
+  margin-right: .4rem;
 }
 
-.card .additional .coords {
-  margin: 0 1rem;
-  color: #fff;
-  font-size: 1rem;
-  height: 4rem;
-}
+// .card .additional .coords {
+  // margin: 11rem;
+  // color: #fff;
+  // font-size: 1rem;
+  // height: 4rem;
+// }
 
-.card .additional .coords span + span {
-  float: right;
-}
+// .card .additional .coords span + span {
+//   float: right;
+// }
 
 .card .additional .stats {
-  font-size: 1.5rem;
+  // font-size: 1.5rem;
   display: flex;
   position: absolute;
   bottom: 1rem;
