@@ -10,7 +10,7 @@
   <div class="cards">
     <% @games.each do |game| %>
       <% if game.photo.attached?%>
-        <% background_url = cl_image_path game.photo.key%>
+        <% background_url = cl_image_path game.photo.key, width: 500, height: 400, crop: :scale %>
       <% else %>
         <% background_url = 'https://images.unsplash.com/photo-1510015632688-f18aa4c1a95e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' %>
       <% end %>
@@ -34,17 +34,14 @@
               <div class="coords">
                 <div class="stats">
                   <div>
-                    
                     <i class="fas fa-tag"></i>
                     <div class="value">$<%= game.price %></div>
                   </div>
                   <div>
-                    
                     <i class="fa fa-gamepad"></i>
                     <div class="value"><%= game.platform %></div>
                   </div>
                   <div>
-                    
                     <i class="fas fa-tv"></i>
                     <div class="value"><%= game.genre %></div>
                   </div>
