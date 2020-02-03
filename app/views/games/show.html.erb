@@ -6,9 +6,9 @@
   <div class="row game-info">
     <div class="game-photo">
       <% if @game.photo.attached?%>
-        <%= cl_image_tag @game.photo.key, height: 500, width: 500, crop: :scale %>
+        <%= cl_image_tag @game.photo.key, height: 500, width: 500, crop: :scale, :radius => 16 %>
       <% else %>
-        <%= cl_image_tag("f0e6lzfzkmdqtzfblz6t", width: 500, height: 400, crop: :scale) %>
+        <%= cl_image_tag("f0e6lzfzkmdqtzfblz6t", width: 500, height: 400, crop: :scale, :radius => 16) %>
       <% end %>
     </div>
 
@@ -35,7 +35,7 @@
                   <% if @game.user.photo.attached?%>
                     <%= cl_image_tag @game.user.photo.key, class: "avatar-show"%>
                   <% else %>
-                    <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-large" %>
+                    <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-show" %>
                   <% end %>
                 </div>
                 <br>
@@ -55,8 +55,8 @@
             </tr>
         </tbody>
       </table>
-      <%= link_to "Back to all games", games_path, class: "btn btn-danger btn-lg m-4", style:"color: white;" %>
-      <%= link_to "Reserve this game", new_game_reservation_path(@game), class: "btn btn-success btn-lg m-4", style:"color: white;" %>
+      <%= link_to "Back to all games", games_path, class: "btn btn-secondary btn-lg m-4", style:"color: white; border-radius: 8px;" %>
+      <%= link_to "Reserve this game", new_game_reservation_path(@game), class: "btn btn-success btn-lg m-4", style:"color: white; border-radius: 8px;" %>
     </div>
 
     
