@@ -1,63 +1,61 @@
 <div class="container">
   <div class="row game-info">
-    <div class="game-photo">
-      <% if @game.photo.attached?%>
-        <%= cl_image_tag @game.photo.key, height: 500, width: 500, crop: :scale, :radius => 16 %>
-      <% else %>
-        <%= cl_image_tag("f0e6lzfzkmdqtzfblz6t", width: 500, height: 400, crop: :scale, :radius => 16) %>
-      <% end %>
-    </div>
-
     <div class="col-sm-12 col-md-6">
       <h1 class="text-center"><%= @game.name %></h1>
-      <table class="table" style="line-height: 1rem;">
-        <tbody>
-          <thead>
-            <th><i class="fas fa-tag", style="font-size: 26px;"></i></th>
-            <th><i class="fas fa-tv", style="font-size: 26px;"></i></th>
-            <th><i class="fa fa-gamepad", style="font-size: 26px;"></i></th>
-            <th>Owner</th>
-            <% if current_user.id == @game.user_id %>
-              <th>Delete</th>
-            <% end %>
-          </thead>
-          <% @game.name%>
-            <tr>
-              <td>$<%= @game.price %></td>
-              <td><%= @game.genre %></td>
-              <td><%= @game.platform %></td>
-              <td>
-                <div>
-                  <% if @game.user.photo.attached?%>
-                    <%= cl_image_tag @game.user.photo.key, class: "avatar-show"%>
-                  <% else %>
-                    <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-show" %>
-                  <% end %>
-                </div>
-                <br>
-                <div class="game-user-name">
-                  <%= @game.user.name %>
-                </div>
-              </td>
-              <td>
-                <% if current_user.id == @game.user_id %>
-                  <%= link_to game_path(@game), method: :delete, data: { confirm: "Are you sure?" } do %>
-                    <i class="fa fa-trash destroy_dose", style="color: red;"></i>
-                  <% end %>
-                <% else %>
-                  <p></p>
-                <% end %>
-              </td>
-            </tr>
-        </tbody>
-      </table>
-      <%= link_to "Back to all games", games_path, class: "btn btn-secondary btn-lg m-4", style:"color: white; border-radius: 8px;" %>
-      
-      <% if current_user.id == @game.user_id %>
-        <%= link_to "Cannot reserve", new_game_reservation_path(@game), class: "btn btn-danger btn-lg m-4 disabled", style:"color: white; border-radius: 8px;" %>
-      <% else %>
-        <%= link_to "Reserve this game", new_game_reservation_path(@game), class: "btn btn-success btn-lg m-4", style:"color: white; border-radius: 8px;" %> 
-      <% end %>  
-    </div>
+      <div class="game-photo">
+          <% if @game.photo.attached?%>
+            <%= cl_image_tag @game.photo.key, height: 500, width: 500, crop: :scale, :radius => 16 %>
+          <% else %>
+            <%= cl_image_tag("f0e6lzfzkmdqtzfblz6t", width: 400, height: 300, crop: :scale, :radius => 16) %>
+          <% end %>
+       </div>
   </div>
+       <div class="row_reservation">
+          <table class="table" style="line-height: 1rem; ">
+            <tbody>
+              <thead>
+                <th><i class="fas fa-tag", style="font-size: 26px;"></i></th>
+                <th><i class="fas fa-tv", style="font-size: 26px;"></i></th>
+                <th><i class="fa fa-gamepad", style="font-size: 26px;"></i></th>
+                    <th><% if @game.user.photo.attached?%>
+                          <%= cl_image_tag @game.user.photo.key, class: "avatar-show"%>
+                        <% else %>
+                          <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-show" %>
+                        <% end %>
+                    </th>
+                <% if current_user.id == @game.user_id %>
+                  <th>Delete</th>
+                <% end %>
+              </thead>
+            <% @game.name%>
+              <tr>
+                <td>$<%= @game.price %></td>
+                <td><%= @game.genre %></td>
+                <td><%= @game.platform %></td>
+                <td><%= @game.user.name %></td>
+                <td>
+                  <% if current_user.id == @game.user_id %>
+                    <%= link_to game_path(@game), method: :delete, data: { confirm: "Are you sure?" } do %>
+                      <i class="fa fa-trash destroy_dose", style="color: red;"></i>
+                    <% end %>
+                  <% else %>
+                    <p></p>
+                  <% end %>
+                </td>
+              </tr>
+              <div class="form-wrapper" style="width: 400px; margin: 0 auto; "></div>
+          </tbody>
+        </table>
+          <div class="calender" style="padding-top: 30px;" >
+            <% if current_user.id == @game.user_id %>
+              <p></p>
+            <% else %>
+                <%= simple_form_for [@game, @reservation] do |f| %>
+                <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.button :submit, "Reserve", class: "btn btn-primary" %>
+                <% end %>
+            <% end %>
+          </div>
+     </div>
 </div>
