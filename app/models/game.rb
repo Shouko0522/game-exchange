@@ -2,6 +2,7 @@ class Game < ApplicationRecord
   belongs_to :user
   has_one_attached :photo
   has_many :reservations
+  has_many :reviews
   validates :name, presence: true
   validates :price, presence: true
   validates :platform, presence: true
