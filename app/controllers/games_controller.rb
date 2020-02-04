@@ -6,10 +6,12 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
     @game = Game.new
+
   end
 
   def dashboard
