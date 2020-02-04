@@ -1,12 +1,20 @@
 <div class="container">
 
-  <h1><%= @game.name %></h1>
-  <%= link_to "Back to all games", games_path %>
+  
+  
 
-  <div class="row">
+  <div class="row game-info">
+    <div class="game-photo">
+      <% if @game.photo.attached?%>
+        <%= cl_image_tag @game.photo.key, height: 500, width: 500, crop: :scale, :radius => 16 %>
+      <% else %>
+        <%= cl_image_tag("f0e6lzfzkmdqtzfblz6t", width: 500, height: 400, crop: :scale, :radius => 16) %>
+      <% end %>
+    </div>
+
     <div class="col-sm-12 col-md-6">
-      <h3>Game info</h3>
-      <table class="table table-bordered">
+      <h1 class="text-center"><%= @game.name %></h1>
+      <table class="table table-bordered" style="line-height: 1rem;">
         <tbody>
           <thead>
             <th>Price</th>
@@ -22,7 +30,19 @@
               <td>$<%= @game.price %></td>
               <td><%= @game.genre %></td>
               <td><%= @game.platform %></td>
-              <td><%= @game.user.name %></td>
+              <td>
+                <div>
+                  <% if @game.user.photo.attached?%>
+                    <%= cl_image_tag @game.user.photo.key, class: "avatar-show"%>
+                  <% else %>
+                    <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-show" %>
+                  <% end %>
+                </div>
+                <br>
+                <div class="game-user-name">
+                  <%= @game.user.name %>
+                </div>
+              </td>
               <td>
                 <% if current_user.id == @game.user_id %>
                   <%= link_to game_path(@game), method: :delete, data: { confirm: "Are you sure?" } do %>
@@ -35,14 +55,10 @@
             </tr>
         </tbody>
       </table>
-      <%= link_to "Reserve this game", new_game_reservation_path(@game), class: "btn btn-success btn-lg m-4", style:"color: white;"  %>
+      <%= link_to "Back to all games", games_path, class: "btn btn-secondary btn-lg m-4", style:"color: white; border-radius: 8px;" %>
+      <%= link_to "Reserve this game", new_game_reservation_path(@game), class: "btn btn-success btn-lg m-4", style:"color: white; border-radius: 8px;" %>
     </div>
 
-    <br>
-    <% if @game.photo.attached?%>
-      <%= cl_image_tag @game.photo.key, height: 400, width: 400, crop: :fill %>
-    <% else %>
-      <%= cl_image_tag("f0e6lzfzkmdqtzfblz6t", width: 300, height: 300, crop: :fill) %>
-    <% end %>
+    
   </div>
 </div>
