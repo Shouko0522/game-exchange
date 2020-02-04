@@ -1,0 +1,55 @@
+<h1 class="text-center">Xbox</h1>
+  <div class="cards">
+      <% @games.each do |game| %>
+        <% if game.photo.attached?%>
+          <% background_url = cl_image_path game.photo.key%>
+        <% else %>
+          <% background_url = 'https://images.unsplash.com/photo-1510015632688-f18aa4c1a95e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' %>
+        <% end %>
+        <%= link_to game_path(game) do  %>
+          <div class="card">
+            <div class="additional">
+              <div class="user-card">
+                <div>
+                  <% if game.user.photo.attached?%>
+                    <%= cl_image_tag game.user.photo.key, class: "avatar-large"%>
+                  <% else %>
+                    <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-large" %>
+                  <% end %>
+                </div>
+                <div class="user-name">
+                  <%= game.user.name %>
+                </div>
+              </div>
+              <div class="more-info">
+                <h1><%= game.name %></h1>
+                <div class="coords">
+                  <div class="stats">
+                    <div>
+                      
+                      <i class="fas fa-tag"></i>
+                      <div class="value">$<%= game.price %></div>
+                    </div>
+                    <div>
+                      
+                      <i class="fa fa-gamepad"></i>
+                      <div class="value"><%= game.platform %></div>
+                    </div>
+                    <div>
+                      
+                      <i class="fas fa-tv"></i>
+                      <div class="value"><%= game.genre %></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="general">
+              <div class="card-category" style="background-image: url('<%= background_url %>')">
+              </div>
+              <span class="more">Mouse over the card for more info</span>
+            </div>
+          </div> 
+        <% end %> 
+      <% end %>
+    </div>
