@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'games#index'
+
+  get "xbox", to: "games#xbox"
+  get "ps4", to: "games#ps4"
+  get "switch", to: "games#switch"
+
+
   get "dashboard", to: "games#dashboard"
   get "reservation_dashboard", to: "reservations#reservation_dashboard"
 
