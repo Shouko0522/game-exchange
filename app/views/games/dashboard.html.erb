@@ -1,27 +1,27 @@
 <div class="dashboard-main-container">
-  <div style="margin: 4em;">
-    <h1>Games I own</h1>
-    <%= link_to "Add a game to rent", new_game_path, class: "btn btn-success btn-lg m-4", style:"color: white;" %>
-    <div class="dashboard-cards">
-      <% @games.each do |game| %>
-        <div class="dashboard-cards-product">
-          <% if game.photo.attached?%>
-            <% background_url = cl_image_path game.photo.key%>
-          <% else %>
-            <% background_url = 'https://images.unsplash.com/photo-1510015632688-f18aa4c1a95e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' %>
-          <% end %>
-          <img src="<%= background_url %>" alt="">
-          <div class="dashboard-cards-product-infos">
-            <h2><%= link_to game.name, game_path(game) %></h2>
-            <% game.reservations.each do |reservation| %>
-              <p>
-                <i class="fas fa-edit"></i>
-                <%= link_to reservation.user.name, edit_reservation_path(reservation), style: "color: black;" %>
-              </p>
-            <% end %>
-          </div>
-        </div>
+  <h1>Games I own</h1>
+  <div class="cards">
+    <% @games.each do |game| %>
+      <% if game.photo.attached?%>
+        <% background_url = cl_image_path game.photo.key %>
+      <% else %>
+        <% background_url = 'https://images.unsplash.com/photo-1510015632688-f18aa4c1a95e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80' %>
       <% end %>
-    </div>
+      <%= link_to game_path(game) do  %>
+        <%= render "/shared/card", game: game, background_url: background_url do |game|%>
+          <div class="text-box">
+            <p style="font-size: 12px; color: black; line-height: 4px;">Reservations</p>
+            <div></div>
+            <% game.reservations.each do |reservation| %>
+              <p style="<%= reservation.status == "approved" ? "background-color: green;" : "background-color: red;" %>"><%=  reservation.start_date.strftime("%m/%d")  %> - <%=  reservation.end_date.strftime("%m/%d")  %></p>
+              <p style="color: black;">Status: <%= reservation.status %></p>
+            <% end %>
+            
+          </div>
+          
+          
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>
