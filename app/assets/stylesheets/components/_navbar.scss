@@ -17,3 +17,17 @@ text-decoration: none;
 background-color:#6C757D;
 border-radius: 8px;
 }
+.your-game-btn {
+  color:white;
+  border-radius: 8px;
+  background-color: rgb(9, 184, 9);
+  text-decoration: none;
+  padding: 5px 7px 5px 7px;
+  margin-left: 11px;
+}
+
+.your-game-btn:hover {
+  text-decoration: none;
+  color: white;
+  background-color: rgb(7, 162, 7);
+}

@@ -14,7 +14,8 @@
         <% else %>
           <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar" %>
         <% end %> 
-          <ul class="nav nav-tabs"> 
+          <ul class="nav nav-tabs" style="align-items: baseline; padding: 8px;">
+            <li><%= link_to "Add your game", new_game_path, class: "your-game-btn" %>
             <li><%= link_to "My Games", dashboard_path, class: "dropdown-item" %></li>
             <li><%= link_to "My Reservations", reservation_dashboard_path, class: "dropdown-item" %></li>
             <li><%= link_to "Edit User Info", edit_user_registration_path, class: "dropdown-item" %></li>
