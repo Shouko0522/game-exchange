@@ -15,6 +15,20 @@ class GamesController < ApplicationController
     @games = current_user.games
   end
 
+  def xbox
+    @games = Game.where("platform LIKE 'Xbox%'")
+    # query = SELECT * FROM games WHERE platform = "Xbox"
+    # @games = ActiveRecord::Base.connection.execute(query)
+  end
+
+  def ps4
+    @games = Game.where("platform LIKE 'PS4%'")
+  end
+
+  def switch
+    @games = Game.where("platform LIKE 'Nintendo%'")
+  end
+
   def create
     @game = Game.new(game_params)
     @game.user = current_user
