@@ -1,9 +1,9 @@
-.main-container {
+.dashboard-main-container {
   display: flex;
   padding: 20px;
 }
 
-.cards {
+.dashboard-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
@@ -11,7 +11,7 @@
   height: 200px;
 }
 
-.card-product {
+.dashboard-cards-product {
   overflow: hidden;
   height: 200px;
   width: 400px;
@@ -21,19 +21,19 @@
   border-radius: 20px;
 }
 
-.card-product img {
+.dashboard-cards-product img {
   height: 100%;
   width: 200px;
   object-fit: cover;
 }
 
-.card-product h2 {
+.dashboard-cards-product h2 {
   font-size: 20px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.dashboard-cards-product p {
   font-size: 16px;
   line-height: 1.4;
   opacity: .7;
@@ -41,6 +41,6 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.dashboard-cards-product .dashboard-cards-product-infos {
   padding: 16px;
 }
