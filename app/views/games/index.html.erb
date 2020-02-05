@@ -6,13 +6,13 @@
       <h1 class="text-center" style="color:white; padding-top: 24rem;">Choose from our most popular platforms</h1>
       <div class="row justify-content-center">
         <%= link_to xbox_path, class: "m-4", style:"color: white; border-radius: 8px;" do %>
-          <%= image_tag "xbox.png", style:"height: 50px; width: 50px;" %>
+          <%= image_tag "xbox.png", class: "icon-style", style:"height: 50px; width: 50px;" %>
         <% end %>
         <%= link_to ps4_path, class: "btn btn-light btn-lg m-4", style:"height: 60px; width: 90px; color: white; border-radius: 8px;" do %>
-          <%= image_tag "game.png", style:"height: 50px; width: 50px;" %>
+          <%= image_tag "game.png", class: "icon-style", style:"height: 50px; width: 50px;" %>
         <% end %>
         <%= link_to switch_path, class: "m-4", style:" color: white; border-radius: 8px;" do %>
-          <%= image_tag "nintendo.png", style:"height: 50px; width: 50px;" %>
+          <%= image_tag "nintendo.png", class: "icon-style", style:"height: 50px; width: 50px;" %>
         <% end %>
       </div>
       <h4 class="text-center" style="color:white; padding-top: 1rem;">Or scroll down for more amazing titles</h4>
@@ -28,15 +28,15 @@
       <%= link_to game_path(game) do  %>
         <%= render "/shared/card", game: game, background_url: background_url do |game|%>
           <div class="text-box">
-            <i class="fas fa-tag"></i>
+            <i class="fas fa-tag" style="color: whitesmoke"></i>
             <div class="value">$<%= game.price %></div>
           </div>
           <div class="text-box">
-            <i class="fa fa-gamepad"></i>
+            <i class="fa fa-gamepad" style="color: white"></i>
             <div class="value"><%= game.platform %></div>
           </div>
           <div class="text-box">
-            <i class="fas fa-tv"></i>
+            <i class="fas fa-tv" style="color: white"></i>
             <div class="value"><%= game.genre %></div>
           </div>
         <% end %>
