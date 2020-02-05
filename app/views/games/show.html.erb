@@ -19,12 +19,13 @@
                 <th><i class="fas fa-tag", style="font-size: 26px; color: white;"></i></th>
                 <th><i class="fas fa-tv", style="font-size: 26px; color: white;"></i></th>
                 <th><i class="fa fa-gamepad", style="font-size: 26px; color: white;"></i></th>
-                    <th><% if @game.user.photo.attached?%>
-                          <%= cl_image_tag @game.user.photo.key, class: "avatar-show"%>
-                        <% else %>
-                          <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-show" %>
-                        <% end %>
-                    </th>
+                <th>
+                  <% if @game.user.photo.attached?%>
+                    <%= cl_image_tag @game.user.photo.key, class: "avatar-show"%>
+                  <% else %>
+                    <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-show" %>
+                  <% end %>
+                </th>
                 <% if current_user.id == @game.user_id %>
                   <th style="color: white;">Delete</th>
                 <% end %>
@@ -50,7 +51,12 @@
         </table>
           <div class="calender" style="padding-top: 30px;" >
             <% if current_user.id == @game.user_id %>
-              <p></p>
+              <% @game.reservations.each do |reservation| %>
+                <div style="height: 14rem; padding-top: 1rem;">
+                  <p style="color: white; font-size: 21px; padding-bottom: 1rem;">Reservation history for <%= @game.name %></p>
+                  <p style="color: white; font-size: 16px; padding: 5px; border-radius: 5px; <%= reservation.status == "available" ? "background-color: #09ff18bd;" : "background-color: #ff0909b8;" %>"><%=  reservation.start_date.strftime("%m/%d")  %> - <%=  reservation.end_date.strftime("%m/%d")  %> </p>
+                </div>
+              <% end %>
             <% else %>
                 <%= simple_form_for [@game, @reservation] do |f| %>
                 <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}, class:"color: white;" %>
