@@ -8,20 +8,22 @@
       <% end %>
       <%= link_to game_path(game) do  %>
         <div class="card">
-          <div class="additional">
+          <div class="additional" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+            url(https://media.wired.com/photos/5b22c58811196626aaeb168b/master/pass/xbox-FA.jpg); 
+            background-size: cover; background-position: top;">
             <div class="user-card">
               <div class="coords">
                 <div class="stats">
                   <div class="text-box">
-                    <i class="fas fa-tag"></i>
+                    <i class="fas fa-tag" style="color: white;"></i>
                     <div class="value">$<%= game.price %></div>
                   </div>
                   <div class="text-box">
-                    <i class="fa fa-gamepad"></i>
+                    <i class="fa fa-gamepad" style="color: white;"></i>
                     <div class="value"><%= game.platform %></div>
                   </div>
                   <div class="text-box">
-                    <i class="fas fa-tv"></i>
+                    <i class="fas fa-tv" style="color: white;"></i>
                     <div class="value"><%= game.genre %></div>
                   </div>
                 </div>
@@ -30,7 +32,7 @@
               
             </div>
             <div class="more-info">
-              <h1 style="color: black;"><%= game.name %></h1>
+              <h1 style="color: white;"><%= game.name %></h1>
               <div>
                 <% if game.user.photo.attached?%>
                   <%= cl_image_tag game.user.photo.key, class: "avatar-large"%>
@@ -38,7 +40,7 @@
                   <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-large" %>
                 <% end %>
               </div>
-              <div class="user-name text-center" style="color: black">
+              <div class="user-name text-center" style="color: white">
                 <%= game.user.name %>
               </div>
             </div>

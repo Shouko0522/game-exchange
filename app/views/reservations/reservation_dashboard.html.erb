@@ -1,5 +1,5 @@
 
-  <h1>My Reservation list</h1>
+  <h1 class= "text-center">My Reservation list</h1>
   <div class="cards">
     <% @reservations.each do |reservation| %>
       <% if reservation.game.photo.attached?%>
@@ -9,35 +9,29 @@
       <% end %>
       <%= link_to game_path(reservation) do  %>
         <div class="card">
-          <div class="additional" style="background: linear-gradient(#b07333, #f46f0ec7);">
+          <div class="additional" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+            url(https://images.pexels.com/photos/1376766/nature-milky-way-galaxy-space-1376766.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); 
+            background-size: cover; background-position: center;">
             <div class="user-card">
               <div class="coords">
                 <div class="stats">
-                  <div class="text-box">
-                    <i class="fas fa-tag"></i>
-                    <div class="value">$<%=  %></div>
+                  <div class="text-box" style="position-absolute">
+                    <p style="background-color: #09ff18bd; border-radius: 6px">Started</p>
+                    <div class="value"><%= reservation.start_date %></div>
                   </div>
-                  <div class="text-box">
-                    <i class="fa fa-gamepad"></i>
-                    <div class="value"><%=  %></div>
+                  <div class="text-box" style="position-absolute">
+                    <p style="background-color: #ff0909b8; margin-top: 10px; border-radius: 6px">Ending</p>
+                    <div class="value"><%= reservation.end_date %></div>
                   </div>
-                  <div class="text-box">
-                    <i class="fas fa-tv"></i>
-                    <div class="value"><%=  %></div>
-                  </div>
+                  
               </div>
             </div>
-            <div class="more-info">
-              <h1 style="color: black;"><%= reservation.status %></h1>
-              <div>
-                <% if reservation.user.photo.attached?%>
-                  <%= cl_image_tag reservation.user.photo.key, class: "avatar-large"%>
-                <% else %>
-                  <%= cl_image_tag "https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1122&q=80", class: "avatar-large" %>
-                <% end %>
-              </div>
-              <div class="user-name text-center" style="color: black">
-                <%= reservation.user.name %>
+            <div class="more-info" style="margin-top: -11rem;">
+              <h1 style="color: white;"><%= reservation.game.name  %></h1>
+              
+              <div class="text-box" style="text-align: center;">
+                <i class="fas fa-tag" style="font-size: 26px"></i>
+                <div class="value" style="background-color: rgb(0,0,0,.2); color: white">$<%= reservation.game.price %></div>
               </div>
             </div>
           </div>
@@ -51,4 +45,3 @@
       <% end %>
     <% end %>
   </div>
-

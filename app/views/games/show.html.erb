@@ -1,7 +1,9 @@
 <div class="container">
-  <div class="row game-info">
+  <div class="row game-info" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), 
+            url(https://images.pexels.com/photos/326240/pexels-photo-326240.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260); 
+            background-size: cover; background-position: center;">
     <div class="col-sm-12 col-md-6">
-      <h1 class="text-center"><%= @game.name %></h1>
+      <h1 class="text-center" style="color: white; font-size: bold;"><%= @game.name %></h1>
       <div class="game-photo">
           <% if @game.photo.attached?%>
             <%= cl_image_tag @game.photo.key, height: 500, width: 500, crop: :scale, :radius => 16 %>
@@ -14,9 +16,9 @@
           <table class="table" style="line-height: 1rem; ">
             <tbody>
               <thead>
-                <th><i class="fas fa-tag", style="font-size: 26px;"></i></th>
-                <th><i class="fas fa-tv", style="font-size: 26px;"></i></th>
-                <th><i class="fa fa-gamepad", style="font-size: 26px;"></i></th>
+                <th><i class="fas fa-tag", style="font-size: 26px; color: white;"></i></th>
+                <th><i class="fas fa-tv", style="font-size: 26px; color: white;"></i></th>
+                <th><i class="fa fa-gamepad", style="font-size: 26px; color: white;"></i></th>
                     <th><% if @game.user.photo.attached?%>
                           <%= cl_image_tag @game.user.photo.key, class: "avatar-show"%>
                         <% else %>
@@ -24,15 +26,15 @@
                         <% end %>
                     </th>
                 <% if current_user.id == @game.user_id %>
-                  <th>Delete</th>
+                  <th style="color: white;">Delete</th>
                 <% end %>
               </thead>
             <% @game.name%>
               <tr>
-                <td>$<%= @game.price %></td>
-                <td><%= @game.genre %></td>
-                <td><%= @game.platform %></td>
-                <td><%= @game.user.name %></td>
+                <td style="color: white;">$<%= @game.price %></td>
+                <td style="color: white;"><%= @game.genre %></td>
+                <td style="color: white;"><%= @game.platform %></td>
+                <td style="color: white;"><%= @game.user.name %></td>
                 <td>
                   <% if current_user.id == @game.user_id %>
                     <%= link_to game_path(@game), method: :delete, data: { confirm: "Are you sure?" } do %>
@@ -51,7 +53,7 @@
               <p></p>
             <% else %>
                 <%= simple_form_for [@game, @reservation] do |f| %>
-                <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}, class:"color: white;" %>
                 <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
                 <%= f.button :submit, "Reserve", class: "btn btn-primary" %>
                 <% end %>
