@@ -24,7 +24,7 @@ class ReservationsController < ApplicationController
     @reservation.user = user
     @reservation.status = "pending"
     @reservation.save
-    redirect_to reservation_path(@reservation)
+    redirect_to reservation_dashboard_path(@reservation)
   end
 
   def edit
