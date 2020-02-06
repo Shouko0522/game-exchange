@@ -58,7 +58,7 @@ class GamesController < ApplicationController
   def destroy
     @game = Game.find(params[:id])
     @game.destroy
-    redirect_to @game, notice: 'Game was successfully destroyed'
+    redirect_to dashboard_path, notice: 'Game was successfully destroyed'
   end
 
   private
