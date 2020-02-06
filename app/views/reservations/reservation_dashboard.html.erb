@@ -40,7 +40,7 @@
             </div>
             
             <div class="more-info" style="margin-top: -11rem;">
-              <h1><%= link_to reservation.game.name, game_path(reservation.game), style:"text-decoration: none; color: white;" %></h1>
+              <h1><%= link_to reservation.game.name, edit_reservation_path(reservation), style:"text-decoration: none; color: white;" %></h1>
                 <%= link_to "Delete Reservation", reservation_path(reservation), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-danger", style:"color: white; display: block;" %>
               <div class="text-box" style="text-align: center;">      
                  
