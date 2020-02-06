@@ -51,7 +51,6 @@
         </table>
           <div class="calender" style="padding-top: 30px;" >
             <% if current_user.id == @game.user_id %>
-              <%= link_to "Edit", edit_game_path(@game) %>
               <p style="color: white; font-size: 21px; padding-bottom: 1rem;">Reservation history for <%= @game.name %></p>
               <% @game.reservations.each do |reservation| %>
                 <div style="height: 14rem; padding-top: 1rem;">

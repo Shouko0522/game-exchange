@@ -4,7 +4,7 @@
       <h1>Edit reservation status</h1>
 
       <%= simple_form_for @reservation do |f| %>
-        <%= f.input :status, collection: ['pending', 'confirmed', 'declined'], required: false %>
+        <%= f.input :status, collection: ['Pending', 'Available', 'Unavailable'], required: false %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>
