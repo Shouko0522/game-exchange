@@ -107,7 +107,7 @@ puts 'Creating 100 fake users with games...'
         game: game,
         start_date: start_date,
         end_date: end_date,
-        status: start_date < Date.today ? ["confirmed", "declined"].sample : ["pending", "confirmed", "declined"].sample
+        status: start_date < Date.today ? ["Available", "Unavailable"].sample : ["Pending", "Available", "Unavailable"].sample
         )
     end
   end
