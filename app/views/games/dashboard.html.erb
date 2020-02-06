@@ -27,7 +27,7 @@
                   <div class="text-box">
                     <p style="font-size: 12px; color: black; line-height: 4px; color: white;">Reservations</p>
                     <% game.reservations.each do |reservation| %>
-                      <p style="font-size: 16px; padding: 5px; border-radius: 5px; <%= reservation.status == "available" ? "background-color: #09ff18bd;" : "background-color: #ff0909b8;" %>"><%=  reservation.start_date.strftime("%m/%d")  %> - <%=  reservation.end_date.strftime("%m/%d")  %> </p>
+                      <p style="font-size: 16px; padding: 5px; border-radius: 5px; <%= reservation.status == "Available" ? "background-color: #09ff18bd;" : "background-color: #ff0909b8;" %>"><%=  reservation.start_date.strftime("%m/%d")  %> - <%=  reservation.end_date.strftime("%m/%d")  %> </p>
                     <% end %>
                   </div>
                 </div>
