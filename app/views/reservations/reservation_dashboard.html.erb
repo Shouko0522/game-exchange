@@ -27,8 +27,8 @@
             </div>
             
             <div class="more-info" style="margin-top: -11rem;">
-              <h1><%= link_to "Edit Status", edit_reservation_path(reservation), class:"btn btn-success", style:"color: white;" %></h1>
-                         
+              <h1><%= reservation.game.name %></h1>
+                <%= link_to "Delete Reservation", reservation_path(reservation), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-success", style:"color: white;" %>
               <div class="text-box" style="text-align: center;">      
                  
               </div>
