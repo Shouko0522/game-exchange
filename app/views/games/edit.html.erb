@@ -1,13 +1,14 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
-      <h1><%= Edit game.name(@game) %></h1>
+      <h1><%= @game.name %></h1>
 
       <%= simple_form_for @game do |f| %>
         <%= f.input :name %>
         <%= f.input :price %>
         <%= f.input :genre %>
         <%= f.input :platform %>
+        <%= f.input :photo, as: :file %>
         <%= f.button :submit, class: 'btn btn-primary' %>
       <% end %>
     </div>
