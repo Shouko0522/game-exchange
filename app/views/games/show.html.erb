@@ -51,9 +51,10 @@
         </table>
           <div class="calender" style="padding-top: 30px;" >
             <% if current_user.id == @game.user_id %>
+              <%= link_to "Edit", edit_game_path(@game) %>
+              <p style="color: white; font-size: 21px; padding-bottom: 1rem;">Reservation history for <%= @game.name %></p>
               <% @game.reservations.each do |reservation| %>
                 <div style="height: 14rem; padding-top: 1rem;">
-                  <p style="color: white; font-size: 21px; padding-bottom: 1rem;">Reservation history for <%= @game.name %></p>
                   <p style="margin-bottom: 3rem; color: white; font-size: 16px; padding: 5px; border-radius: 5px; <%= reservation.status == "available" ? "background-color: #09ff18bd;" : "background-color: #ff0909b8;" %>"><%=  reservation.start_date.strftime("%m/%d")  %> - <%=  reservation.end_date.strftime("%m/%d")  %> </p>
                   <div class="margin-top: 3rem;">
                   <%= link_to "Edit Status", edit_reservation_path(reservation), class: "your-game-btn", style:"color: white;" %>

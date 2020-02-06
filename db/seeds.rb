@@ -10,6 +10,26 @@ PLATFORMS = [
   "PC",
   "Xbox",
   "PS4",
+  "Nintendo DS",
+  "Nintendo Switch",
+  "Sega Saturn",
+  "Gamecube",
+  "Nintendo Wii",
+]
+
+GENRE = [
+  "First Person Shooter",
+  "Simulation",
+  "Racing",
+  "Sports",
+  "RPG",
+  "MMORPG",
+  "Real Time Strategy",
+  "Platform",
+  "Fighting",
+  "Rhythm",
+  "Stealth",
+  "Survival"
 ]
 
 # platform: PLATFORMS.sample
@@ -25,6 +45,7 @@ puts "Creating developer accounts..."
 User.create(name:"Nii",email:"nii@gmail.com",password:"123456")
 User.create(name:"Gavin",email:"gavin@gmail.com",password:"123456")
 User.create(name:"Shouko",email:"shouko@gmail.com",password:"123456")
+User.create(name:"Yann",email:"yann@gmail.com",password:"123456")
 
 # puts 'Creating 100 fake users...'
 # 100.times do
@@ -61,7 +82,7 @@ User.create(name:"Shouko",email:"shouko@gmail.com",password:"123456")
 # end
 
 puts 'Creating 100 fake users with games...'
-100.times do
+10.times do
   user = User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -72,9 +93,9 @@ puts 'Creating 100 fake users with games...'
     game = Game.new(
       name: Faker::Game.title,
       user: user,
-      genre: Faker::Game.genre,
+      genre: GENRE.sample,
       price: Faker::Commerce.price,
-      platform: Faker::Game.platform
+      platform: PLATFORMS.sample,
     )
     game.save!
 
