@@ -36,7 +36,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     @game.user = current_user
     if @game.save
-      redirect_to game_path(@game), notice: 'Game was successfully created'
+      redirect_to dashboard_path(dashboard), notice: 'Game was successfully created'
     else
       render 'new'
     end
