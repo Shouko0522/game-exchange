@@ -38,6 +38,12 @@ class ReservationsController < ApplicationController
     redirect_to reservation_path(@reservation)
   end
 
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to reservation_dashboard_path, notice: 'The reservation was successfully removed'
+  end
+
   private
 
   def reservation_params
